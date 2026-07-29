@@ -16,29 +16,25 @@
 
 
 <!-- Navigation -->
-
 <header>
 
-<nav>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-<h1>Rouwaida Bedoui</h1>
+    <h1>Rouwaida Bedoui</h1>
 
-
-<ul>
-
-<li><a href="#accueil">Accueil</a></li>
-
-<li><a href="#apropos">À propos</a></li>
-
-<li><a href="#competences">Compétences</a></li>
-
-<li><a href="#projets">Projets</a></li>
-
-<li><a href="#formation">Formation</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
 </header>
+
+<div id="sidebar" class="sidebar">
+
+    <a href="#accueil">Accueil</a>
+    <a href="#apropos">À propos</a>
+    <a href="#competences">Compétences</a>
+    <a href="#projets">Projets</a>
+    <a href="#formation">Formation</a>
+    <a href="#contact">Contact</a>
+
+</div>
+   
 
 <!-- Accueil -->
 <section id="accueil" class="accueil">
@@ -69,11 +65,6 @@ Voir mes projets
 
 </section>
 
-
-
-
-
-
 <!-- À propos -->
 
 
@@ -94,26 +85,14 @@ J'aime apprendre et améliorer mes compétences techniques.
 
 </section>
 
-
-
-
-
-
-
-
 <!-- Compétences -->
 
 
 <section id="competences">
 
-
 <h2>Mes compétences</h2>
 
-
-
 <div class="skills">
-
-
 
 <div class="skill-card">
 
@@ -129,9 +108,6 @@ J'aime apprendre et améliorer mes compétences techniques.
 
 </div>
 
-
-
-
 <div class="skill-card">
 
 <img src="images/css.png">
@@ -145,10 +121,6 @@ J'aime apprendre et améliorer mes compétences techniques.
 </div>
 
 </div>
-
-
-
-
 
 <div class="skill-card">
 
@@ -166,10 +138,6 @@ J'aime apprendre et améliorer mes compétences techniques.
 
 </div>
 
-
-
-
-
 <div class="skill-card">
 
 <h3>C++</h3>
@@ -181,11 +149,6 @@ J'aime apprendre et améliorer mes compétences techniques.
 </div>
 
 </div>
-
-
-
-
-
 
 <div class="skill-card">
 
@@ -199,12 +162,6 @@ J'aime apprendre et améliorer mes compétences techniques.
 
 </div>
 
-
-
-
-
-
-
 <div class="skill-card">
 
 <h3>Réseaux</h3>
@@ -217,20 +174,10 @@ J'aime apprendre et améliorer mes compétences techniques.
 
 </div>
 
-
-
 </div>
 
 
 </section>
-
-
-
-
-
-
-
-
 
 <!-- Projets -->
 
@@ -244,8 +191,6 @@ J'aime apprendre et améliorer mes compétences techniques.
 
 <div class="projects">
 
-
-
 <div class="project-card">
 
 <img src="images/projet1.jpg">
@@ -258,11 +203,6 @@ Création d'un site web avec HTML5 et CSS3.
 
 
 </div>
-
-
-
-
-
 
 <div class="project-card">
 
@@ -279,12 +219,6 @@ Développement d'applications simples avec Python.
 
 </div>
 
-
-
-
-
-
-
 <div class="project-card">
 
 <img src="images/projet3.jpg">
@@ -300,10 +234,6 @@ Création et gestion d'une base de données SQL.
 
 </div>
 
-
-
-
-
 <div class="project-card">
 
 
@@ -316,12 +246,7 @@ Configuration réseau, adressage IP et protocoles TCP/IP.
 
 </p>
 
-
 </div>
-
-
-
-
 
 <div class="project-card">
 
@@ -338,22 +263,9 @@ Configuration réseau, adressage IP et protocoles TCP/IP.
 
 </div>
 
-
-
-
 </div>
 
-
-
 </section>
-
-
-
-
-
-
-
-
 
 <!-- Formation -->
 
@@ -373,8 +285,6 @@ Configuration réseau, adressage IP et protocoles TCP/IP.
 Étudiante en informatique.
 </p>
 
-
-
 <h3>Expérience</h3>
 
 <p>
@@ -387,14 +297,6 @@ Stage en développement informatique.
 
 </section>
 
-
-
-
-
-
-
-
-
 <!-- Contact -->
 
 
@@ -402,8 +304,6 @@ Stage en développement informatique.
 
 
 <h2>Contact</h2>
-
-
 
 <form>
 
@@ -424,16 +324,7 @@ Envoyer
 
 </form>
 
-
-
 </section>
-
-
-
-
-
-
-
 
 <!-- Footer -->
 
@@ -453,9 +344,6 @@ Envoyer
 
 </footer>
 
-
-
-
 </body>
 <style>*{
 
@@ -467,16 +355,12 @@ font-family:Arial,sans-serif;
 
 }
 
-
-
 body{
 
 background:#f4f4f4;
 color:#333;
 
 }
-
-
 
 header{
 
@@ -487,9 +371,6 @@ width:100%;
 top:0;
 
 }
-
-
-
 nav{
 
 display:flex;
@@ -497,9 +378,6 @@ justify-content:space-between;
 align-items:center;
 
 }
-
-
-
 ul{
 
 display:flex;
@@ -507,20 +385,12 @@ gap:20px;
 list-style:none;
 
 }
-
-
-
 ul a{
 
 text-decoration:none;
 color:black;
 
 }
-
-
-
-
-
 .accueil{
 
 height:100vh;
@@ -531,17 +401,11 @@ text-align:center;
 background:white;
 
 }
-
-
-
 .accueil h2{
 
 font-size:40px;
 
 }
-
-
-
 .btn{
 
 display:inline-block;
@@ -553,29 +417,17 @@ text-decoration:none;
 border-radius:20px;
 
 }
-
-
-
-
 section{
 
 padding:80px 50px;
 
 }
-
-
-
 h2{
 
 text-align:center;
 margin-bottom:30px;
 
 }
-
-
-
-
-
 .skills{
 
 display:grid;
@@ -583,9 +435,6 @@ grid-template-columns:repeat(3,1fr);
 gap:25px;
 
 }
-
-
-
 .skill-card{
 
 background:white;
@@ -595,18 +444,11 @@ text-align:center;
 box-shadow:0 5px 15px #ddd;
 
 }
-
-
-
 .skill-card img{
 
 width:60px;
 
 }
-
-
-
-
 .progress{
 
 height:20px;
@@ -614,9 +456,6 @@ background:#ddd;
 border-radius:20px;
 
 }
-
-
-
 .progress div{
 
 height:100%;
@@ -625,22 +464,12 @@ color:white;
 text-align:center;
 
 }
-
-
-
-
 .html{width:90%}
 .css{width:85%}
 .python{width:75%}
 .cpp{width:70%}
 .bdd{width:80%}
 .reseau{width:75%}
-
-
-
-
-
-
 .projects{
 
 display:grid;
@@ -648,9 +477,6 @@ grid-template-columns:repeat(3,1fr);
 gap:25px;
 
 }
-
-
-
 .project-card{
 
 background:white;
@@ -658,18 +484,11 @@ padding:20px;
 border-radius:15px;
 
 }
-
-
-
 .project-card img{
 
 width:100%;
 
 }
-
-
-
-
 form{
 
 width:50%;
@@ -679,17 +498,11 @@ flex-direction:column;
 gap:15px;
 
 }
-
-
-
 input,textarea{
 
 padding:15px;
 
 }
-
-
-
 button{
 
 padding:12px;
@@ -698,10 +511,6 @@ color:white;
 border:0;
 
 }
-
-
-
-
 footer{
 
 background:#222;
@@ -710,9 +519,6 @@ text-align:center;
 padding:20px;
 
 }
-
-
-
 footer a{
 
 color:white;
@@ -733,34 +539,64 @@ nav{
 flex-direction:column;
 
 }
-
-
-
 ul{
 
 flex-direction:column;
 
 }
-
-
-
 .skills,
 .projects{
 
 grid-template-columns:1fr;
 
 }
-
-
-
 form{
 
 width:90%;
 
 }
+header{
+    display:flex;
+    align-items:center;
+    padding:15px 20px;
+    background:#2c3e50;
+    color:white;
+}
 
+.menu-btn{
+    font-size:30px;
+    background:none;
+    border:none;
+    color:white;
+    cursor:pointer;
+    margin-right:20px;
+}
 
+.sidebar{
+    position:fixed;
+    left:-250px;
+    top:0;
+    width:250px;
+    height:100%;
+    background:#34495e;
+    transition:0.3s;
+    padding-top:60px;
+}
 
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+}
+
+.sidebar a:hover{
+    background:#3498db;
+}
+
+.sidebar.show{
+    left:0;
+}
 }</style>
 
 </html>
