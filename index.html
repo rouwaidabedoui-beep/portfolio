@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio - Rouwaida Bedoui</title>
-
-
 </head>
 
 <body>
@@ -42,7 +40,7 @@
 <!-- À propos -->
 <section id="apropos">
   <h2>À propos</h2>
-  <p>
+  <p class="apropos-text">
     Je suis une étudiante en informatique intéressée par
     le développement web, la programmation et les systèmes informatiques.
     J'aime apprendre et améliorer mes compétences techniques.
@@ -140,7 +138,6 @@
 <!-- Contact -->
 <section id="contact" class="contact">
     <h2>Contact</h2>
-    <div class="line"></div>
 
     <div class="contact-container">
 
@@ -222,6 +219,36 @@ langBtn.addEventListener("click", () => {
 </script>
 </body>
 <style>
+/* ============================================
+   VARIABLES DE THEME
+   Le thème "contact" (violet #6c63ff / rose #ff4ecd,
+   cartes sombres arrondies) est maintenant la base
+   de tout le portfolio, en clair ET en sombre.
+   ============================================ */
+:root {
+  --bg: #f4f4f4;
+  --bg-alt: #ffffff;
+  --text: #222222;
+  --text-muted: #555555;
+  --primary: #6c63ff;
+  --accent: #ff4ecd;
+  --card-bg: #ffffff;
+  --card-border: #e4e4f5;
+  --card-shadow: rgba(108, 99, 255, 0.15);
+  --progress-bg: #e6e6f5;
+}
+
+body.dark-mode {
+  --bg: #15172c;
+  --bg-alt: #1e233b;
+  --text: #f1f1f1;
+  --text-muted: #cfcfd8;
+  --card-bg: #1e233b;
+  --card-border: #353c7d;
+  --card-shadow: rgba(108, 99, 255, 0.4);
+  --progress-bg: #2c3260;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -230,24 +257,30 @@ langBtn.addEventListener("click", () => {
 }
 
 body {
-  background: #f4f4f4;
-  color: #333;
+  background: var(--bg);
+  color: var(--text);
   transition: background-color .3s, color .3s;
 }
 
 header {
-  background: white;
+  background: var(--bg-alt);
   padding: 20px;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 100;
+  box-shadow: 0 2px 10px var(--card-shadow);
+  transition: background-color .3s;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+nav h1 {
+  color: var(--primary);
 }
 
 ul {
@@ -258,7 +291,27 @@ ul {
 
 ul a {
   text-decoration: none;
-  color: black;
+  color: var(--text);
+  transition: color .2s;
+}
+
+ul a:hover {
+  color: var(--primary);
+}
+
+#lang-btn, #theme-toggle {
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--text);
+  border-radius: 20px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+#lang-btn:hover, #theme-toggle:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 .accueil {
@@ -267,7 +320,8 @@ ul a {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: white;
+  background: var(--bg-alt);
+  transition: background-color .3s;
 }
 
 .accueil h2 {
@@ -278,19 +332,52 @@ ul a {
   display: inline-block;
   margin-top: 20px;
   padding: 12px 25px;
-  background: #3498db;
+  background: linear-gradient(to right, var(--primary), var(--accent));
   color: white;
   text-decoration: none;
   border-radius: 20px;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--card-shadow);
 }
 
 section {
   padding: 80px 50px;
 }
 
+/* Ligne dégradée violet -> rose sous chaque titre, comme dans Contact */
 h2 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+  color: var(--text);
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  margin: 15px auto 45px;
+  border-radius: 10px;
+}
+
+#apropos, #formation {
+  background: var(--bg);
+}
+
+#competences, #projets {
+  background: var(--bg-alt);
+}
+
+.apropos-text {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--text-muted);
 }
 
 .profile {
@@ -298,6 +385,7 @@ h2 {
   height: 180px;
   border-radius: 50%;
   object-fit: cover;
+  border: 3px solid var(--primary);
 }
 
 /* Compétences */
@@ -308,31 +396,43 @@ h2 {
 }
 
 .skill-card {
-  background: white;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   padding: 25px;
   border-radius: 15px;
   text-align: center;
-  box-shadow: 0 5px 15px #ddd;
-  transition: background-color .3s, color .3s;
+  box-shadow: 0 5px 15px var(--card-shadow);
+  transition: transform .3s, background-color .3s, color .3s, box-shadow .3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px var(--card-shadow);
 }
 
 .skill-card img {
   width: 60px;
 }
 
+.skill-card h3 {
+  color: var(--primary);
+  margin: 12px 0;
+}
+
 .progress {
   height: 20px;
-  background: #ddd;
+  background: var(--progress-bg);
   border-radius: 20px;
   overflow: hidden;
 }
 
 .progress div {
   height: 100%;
-  background: #3498db;
+  background: linear-gradient(to right, var(--primary), var(--accent));
   color: white;
   text-align: center;
   font-size: 12px;
+  line-height: 20px;
 }
 
 .html  { width: 90% }
@@ -350,83 +450,107 @@ h2 {
 }
 
 .project-card {
-  background: white;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   padding: 20px;
   border-radius: 15px;
-  transition: background-color .3s, color .3s;
+  box-shadow: 0 5px 15px var(--card-shadow);
+  transition: transform .3s, background-color .3s, color .3s, box-shadow .3s;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px var(--card-shadow);
 }
 
 .project-card img {
   width: 100%;
+  border-radius: 10px;
+}
+
+.project-card h3 {
+  color: var(--primary);
+  margin: 12px 0 8px;
+}
+
+.project-card p {
+  color: var(--text-muted);
 }
 
 /* Formation */
 .formation {
-  background: white;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   padding: 25px;
   border-radius: 15px;
   max-width: 700px;
   margin: auto;
+  box-shadow: 0 5px 15px var(--card-shadow);
   transition: background-color .3s, color .3s;
 }
 
 .formation h3 {
   margin-top: 15px;
+  color: var(--primary);
 }
 
 /* Contact */
-.contact{
-    padding:100px 50px;
-    text-align:center;
-    background:white;
+.contact {
+  padding: 100px 50px;
+  text-align: center;
+  background: var(--bg-alt);
+  transition: background-color .3s;
 }
 
-.contact h2{
-    color:black;
-    font-size:42px;
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-.line{
-    width:70px;
-    height:4px;
-    background:linear-gradient(to right,#6c63ff,#ff4ecd);
-    margin:15px auto 60px;
-    border-radius:10px;
+.contact-card {
+  width: 320px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 40px 20px;
+  box-shadow: 0 5px 15px var(--card-shadow);
+  transition: transform .3s, background-color .3s, border-color .3s, box-shadow .3s;
 }
 
-.contact-container{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
+.contact-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px var(--card-shadow);
 }
 
-.contact-card{
-    width:320px;
-    background:#1e233b;
-    border:1px solid #353c7d;
-    border-radius:20px;
-    padding:40px 20px;
-    transition:.4s;
+.contact-card .icon {
+  font-size: 55px;
+  margin-bottom: 20px;
 }
 
-.contact-card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 10px 25px rgba(108,99,255,.4);
+.contact-card h3 {
+  color: var(--primary);
+  margin-bottom: 15px;
 }
 
-.contact-card .icon{
-    font-size:55px;
-    margin-bottom:20px;
+.contact-card p {
+  color: var(--text-muted);
 }
 
-.contact-card h3{
-    color:#6c63ff;
-    margin-bottom:15px;
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: var(--bg-alt);
+  color: var(--text-muted);
+  transition: background-color .3s, color .3s;
 }
 
-.contact-card p{
-    color:#d5d5d5;
+footer a {
+  margin: 0 10px;
+  color: var(--primary);
+  text-decoration: none;
 }
 
 /* Bouton de thème */
@@ -436,58 +560,13 @@ h2 {
   right: 20px;
   z-index: 1000;
   padding: 12px 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.2);
-}
-
-/* ===== MODE SOMBRE (hors media query !) ===== */
-body.dark-mode {
-  background: #1e1e1e;
-  color: #f1f1f1;
-}
-
-body.dark-mode header {
-  background: #111;
-}
-
-body.dark-mode ul a,
-body.dark-mode nav h1,
-body.dark-mode h2,
-body.dark-mode h3 {
-  color: #f1f1f1;
-}
-
-body.dark-mode .accueil {
-  background: #1e1e1e;
-}
-
-body.dark-mode .skill-card,
-body.dark-mode .project-card,
-body.dark-mode .formation {
-  background: #2c2c2c;
-  color: #f1f1f1;
-  box-shadow: 0 5px 15px #111;
-}
-
-body.dark-mode .progress {
-  background: #444;
-}
-
-body.dark-mode input,
-body.dark-mode textarea {
-  background: #2c2c2c;
-  color: #f1f1f1;
-  border-color: #444;
-}
-
-body.dark-mode input::placeholder,
-body.dark-mode textarea::placeholder {
-  color: #aaa;
+  box-shadow: 0 4px 12px var(--card-shadow);
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  nav { flex-direction: column; }
-  ul  { flex-direction: column; }
+  nav { flex-direction: column; gap: 10px; }
+  ul  { flex-direction: column; text-align: center; }
   .skills,
   .projects { grid-template-columns: 1fr; }
   form { width: 90%; }
