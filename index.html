@@ -138,14 +138,31 @@
 </section>
 
 <!-- Contact -->
-<section id="contact">
-  <h2>Contact</h2>
-  <form>
-    <input type="text" placeholder="Nom">
-    <input type="email" placeholder="Email">
-    <textarea placeholder="Message" rows="5"></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
+<section id="contact" class="contact">
+    <h2>Contact</h2>
+    <div class="line"></div>
+
+    <div class="contact-container">
+
+        <div class="contact-card">
+            <div class="icon">📧</div>
+            <h3>Email</h3>
+            <p>bedouirouwaida890@gmail.com</p>
+        </div>
+
+        <div class="contact-card">
+            <div class="icon">📞</div>
+            <h3>Téléphone</h3>
+            <p>+216 92202367</p>
+        </div>
+
+        <div class="contact-card">
+            <div class="icon">💼</div>
+            <h3>LinkedIn</h3>
+            <p>www.linkedin.com/in/rouayda-bedoui</p>
+        </div>
+
+    </div>
 </section>
 
 <!-- Footer -->
@@ -358,39 +375,58 @@ h2 {
 }
 
 /* Contact */
-form {
-  width: 50%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.contact{
+    padding:100px 50px;
+    text-align:center;
+    background:white;
 }
 
-input, textarea {
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+.contact h2{
+    color:black;
+    font-size:42px;
 }
 
-button {
-  padding: 12px;
-  background: #3498db;
-  color: white;
-  border: 0;
-  border-radius: 8px;
-  cursor: pointer;
+.line{
+    width:70px;
+    height:4px;
+    background:linear-gradient(to right,#6c63ff,#ff4ecd);
+    margin:15px auto 60px;
+    border-radius:10px;
 }
 
-footer {
-  background: #222;
-  color: white;
-  text-align: center;
-  padding: 20px;
+.contact-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
 }
 
-footer a {
-  color: white;
-  margin: 10px;
+.contact-card{
+    width:320px;
+    background:#1e233b;
+    border:1px solid #353c7d;
+    border-radius:20px;
+    padding:40px 20px;
+    transition:.4s;
+}
+
+.contact-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 25px rgba(108,99,255,.4);
+}
+
+.contact-card .icon{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.contact-card h3{
+    color:#6c63ff;
+    margin-bottom:15px;
+}
+
+.contact-card p{
+    color:#d5d5d5;
 }
 
 /* Bouton de thème */
